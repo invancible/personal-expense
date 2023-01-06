@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './expense_tracker/screens/expense_tracker_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -7,23 +9,33 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final ThemeData theme = ThemeData();
+  final ThemeData theme = ThemeData(
+    fontFamily: 'Montserrat',
+  );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Expense',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Personal Exepense'),
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(
+          primary: Colors.indigo,
+          secondary: Colors.blue,
         ),
-        body: const Center(
-          child: Text('Personal Expense...'),
+        textTheme: theme.textTheme.copyWith(
+          titleLarge: const TextStyle(
+            color: Colors.white,
+          ),
+          titleMedium: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+          ),
+          labelLarge: const TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
+      home: const ExpenseTrackerScreen(),
     );
   }
 }
