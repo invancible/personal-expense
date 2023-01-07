@@ -69,4 +69,9 @@ class Expenses with ChangeNotifier {
   List<Expense> get items {
     return [..._items];
   }
+
+  void deleteExpense(String id) {
+    _items.removeWhere((element) => element.id == id);
+    notifyListeners();
+  }
 }

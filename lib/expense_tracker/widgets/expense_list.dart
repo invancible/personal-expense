@@ -28,7 +28,7 @@ class ExpenseList extends StatelessWidget {
   }
 
   // List of Expenses (Item)
-  Widget builderExpenseItem(Expense item, BuildContext ctx) {
+  Widget builderExpenseItem(Expense item, Function delete, BuildContext ctx) {
     return Card(
       child: ListTile(
         leading: CircleAvatar(
@@ -51,7 +51,7 @@ class ExpenseList extends StatelessWidget {
         ),
         subtitle: Text(DateFormat.yMMMMd().format(item.date)),
         trailing: IconButton(
-          onPressed: (() {}),
+          onPressed: (() => delete(item.id)),
           icon: const Icon(Icons.delete),
         ),
       ),
@@ -77,8 +77,8 @@ class ExpenseList extends StatelessWidget {
           )
         : ListView.builder(
             itemCount: expenses.items.length,
-            itemBuilder: ((_, i) =>
-                builderExpenseItem(expenses.items[i], context)),
+            itemBuilder: ((_, i) => builderExpenseItem(
+                expenses.items[i], expenses.deleteExpense, context)),
           );
   }
 }
