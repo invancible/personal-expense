@@ -28,11 +28,13 @@ class Chart extends StatelessWidget {
                 height: double.infinity,
                 child: FractionallySizedBox(
                   alignment: Alignment.bottomCenter,
-                  heightFactor: percentage == 0.0 ? 0.1 : percentage,
+                  heightFactor:
+                      percentage == 2 || percentage == 0.0 ? 0.1 : percentage,
                   child: Container(
                     decoration: BoxDecoration(
-                      color:
-                          percentage == 0.0 ? Colors.white10 : Colors.white60,
+                      color: percentage == 2 || percentage == 0.0
+                          ? Colors.white10
+                          : Colors.white60,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5),
@@ -75,7 +77,7 @@ class Chart extends StatelessWidget {
               (data) => buildChartItem(
                   data,
                   expenses.totalExpenses == 0
-                      ? 1
+                      ? 2
                       : (data['amount'] as double) / expenses.totalExpenses),
             )
             .toList(),

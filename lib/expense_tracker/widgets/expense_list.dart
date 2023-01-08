@@ -67,7 +67,7 @@ class ExpenseList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/no_expense.png'),
+                Image.asset('assets/images/no_expense.png', width: 280),
                 Text(
                   'No Expense Transaction Yet!',
                   style: Theme.of(context).textTheme.titleSmall,
