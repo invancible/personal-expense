@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../models/expense.dart';
 import '../widgets/chart.dart';
 import '../widgets/expense_list.dart';
+import '../widgets/fab.dart';
 
 class ExpenseTrackerScreen extends StatelessWidget {
   const ExpenseTrackerScreen({super.key});
@@ -35,6 +36,8 @@ class ExpenseTrackerScreen extends StatelessWidget {
             ),
           ],
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Fab(),
       ),
     );
   }

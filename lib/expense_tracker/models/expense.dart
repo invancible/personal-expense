@@ -112,6 +112,18 @@ class Expenses with ChangeNotifier {
     });
   }
 
+  void addExpense(String title, double amount, DateTime date) {
+    final newExpense = Expense(
+      id: DateTime.now().toString(),
+      title: title,
+      amount: amount,
+      date: date,
+    );
+
+    _items.add(newExpense);
+    notifyListeners();
+  }
+
   void deleteExpense(String id) {
     _items.removeWhere((element) => element.id == id);
     notifyListeners();
